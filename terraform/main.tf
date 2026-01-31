@@ -10,10 +10,10 @@ resource "azurerm_storage_account" "storage" {
   account_tier             = "Standard"
   account_replication_type = "LRS"
 
-  # ❌ HIGH RISK: Public access enabled
-  allow_blob_public_access = true
+  # ❌ HIGH RISK — allows public containers
+  allow_nested_items_to_be_public = true
 
-  # ❌ HIGH RISK: No firewall / network rules
+  # ❌ HIGH RISK — open to internet
   public_network_access_enabled = true
 }
 
@@ -21,7 +21,7 @@ resource "azurerm_storage_container" "container" {
   name                  = "public-data"
   storage_account_name  = azurerm_storage_account.storage.name
 
-  # ❌ HIGH RISK: Public read access
+  # ❌ HIGH RISK — public read access
   container_access_type = "blob"
 }
 
