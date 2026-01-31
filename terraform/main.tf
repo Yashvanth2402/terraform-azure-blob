@@ -24,3 +24,5 @@ resource "azurerm_storage_container" "container" {
   # ❌ HIGH RISK: Public read access
   container_access_type = "blob"
 }
+
+# test change to trigger AI review
