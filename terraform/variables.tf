@@ -10,3 +10,5 @@ variable "resource_group_name" {
 variable "storage_account_name" {
   type = string
 }
+
+# test change to trigger AI review
